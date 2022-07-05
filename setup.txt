@@ -1,0 +1,62 @@
+#Setup minikube
+#!bin/bash
+sudo apt update
+sudo apt upgrade -y
+sudo hostnamectl set-hostname minikube
+sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo apt-get update -y &&  sudo apt-get install -y docker.io
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+snap install kubectl --classic
+sudo apt install conntrack -y
+
+#B2:
+#sửa fiel helper
+{{/* generate labels for api */}}
+{{- define "common.api" -}}
+app: student-app-api
+{{- end }}
+
+{{/* generate labels for client */}}
+{{- define "common.client" -}}
+app: student-app-client
+{{- end }}
+
+{{/* generate basic labels */}}
+{{- define "common.mongo" -}}
+app: mongo
+{{- end }}
+
+#B3: sửa file value:
+api:
+  name: student-app-api
+  repCount: 1
+  image: thangsu/student-app-api:0.0.1-SNAPSHOT
+  port: 8080
+  targetPort: 8080
+
+client:
+  name: student-app-client
+  repCount: 1
+  image: thangsu/student-app-client
+  port: 80
+  targetPort: 80
+
+volume:
+  name: mongo-pvc
+  storage: 256Mi
+mongo:
+  name: mongo
+  repCount: 1
+  image: mongo:3.6.17-xenial
+  port: 27017
+  targetPort: 27017
+
+
+#Verify
+minikube version
+
+#Start running Minikube
+sudo -i
+minikube start --vm-driver=none
+ minikube status
