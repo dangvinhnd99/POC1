@@ -10,7 +10,7 @@ spec:
       labels: {{ include "common.mongo" . | nindent 8 }}
     spec:
       containers:
-        - name: {{ .Values.mongo.name }}
+        - name: mongo
           image: {{ .Values.mongo.image }}
           ports:
             - containerPort: {{ .Values.mongo.port }}

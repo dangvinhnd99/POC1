@@ -8,9 +8,9 @@ deployment:
 client:
     name: student-app-client
     repCout: 1
-    image: vinhbko99nd/student-app-api:lastest
-    port: 8080
-    targetPort: 8080
+    image: vinhbk99nd/student-app-client:lastest
+    port: 80
+    targetPort: 80
 
 mongo_volume:
     name: mongo-pvc
