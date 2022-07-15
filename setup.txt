@@ -5,7 +5,7 @@ sudo apt upgrade -y
 sudo hostnamectl set-hostname minikube
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo apt-get update -y &&  sudo apt-get install -y docker.io
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
 curl -LO https://github.com/kubernetes/minikube/releases/download/v1.18.0/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 snap install kubectl --classic
@@ -14,7 +14,36 @@ sudo apt install conntrack -y
 #start minikube
 minikube version
 minikube start --driver=none
+# cài java
+Step 1 : Connect to your Linux machine 
+SetUp JAVA PATH 
+Set up Custom TCP port: 8080 in AWS Security Groups 
+Step 2: Update Packages 
+   sudo yum update 
+Step 3 : Check Java is installed. If not install java   
 
+   java -version
+   sudo yum install java-1.8.0 
+UPDATE --> sudo amazon-linux-extras install java-openjdk11 
+   To check and select one out of multiple java versions available 
+
+   sudo /usr/sbin/alternatives --config java 
+Step 4 : Download latest Jenkins code package 
+
+   sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo 
+Step 5 : Import a key file from Jenkins-CI to enable installation from the package 
+
+   sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
+
+   UPDATE --> sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key 
+
+Step 6 : Install Jenkins 
+
+   sudo yum install jenkins 
+
+Step 7 : Start jenkins 
+
+   sudo service jenkins start 
 
 #B2:
 #sửa fiel helper
