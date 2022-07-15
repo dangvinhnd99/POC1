@@ -14,7 +14,8 @@ sudo apt install conntrack -y
 #start minikube
 minikube version
 minikube start --driver=none
-# cài java
+
+# cài java (trên máy khác cũng dc)
 Step 1 : Connect to your Linux machine 
 SetUp JAVA PATH 
 Set up Custom TCP port: 8080 in AWS Security Groups 
@@ -95,3 +96,5 @@ minikube version
 sudo -i
 minikube start --vm-driver=none
  minikube status
+ 
+ #minikube addons enable ingress
