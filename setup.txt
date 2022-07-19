@@ -104,6 +104,20 @@ minikube start --vm-driver=none
  
  #minikube addons enable ingress
  
+ 
+ # cài helm
+
  $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 $ chmod 700 get_helm.sh
 $ ./get_helm.sh
+
+#cài istio
+$ helm repo add istio https://istio-release.storage.googleapis.com/charts
+$ helm repo update
+$ kubectl create namespace istio-system
+$ helm install istio-base istio/base -n istio-system
+$ helm install istiod istio/istiod -n istio-system --wait
+$ kubectl create namespace istio-ingress
+$ kubectl label namespace istio-ingress istio-injection=default
+
+
