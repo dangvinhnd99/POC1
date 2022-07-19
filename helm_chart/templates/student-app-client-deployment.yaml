@@ -4,14 +4,14 @@ metadata:
   name: {{ .Values.client.name }}
 spec:
   selector:
-    matchLabels: {{include "common.client" . | nindent 6}}
-  replicas: 1
-  template:
+    matchLabels: {{ include "common.client" . | nindent 6 }}
+  replicas: {{ .Values.client.repCount }}
+  template:   
     metadata:
-      labels: {{include "common.client" . | nindent 8}}
+      labels: {{ include "common.client" . | nindent 8 }}
     spec:
       containers:
-        - name: {{ .Values.client.name }}
+        - name: {{ .Release.Name }}
           image: {{ .Values.client.image }}
           imagePullPolicy: Always
           ports:
