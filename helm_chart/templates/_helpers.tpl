@@ -7,6 +7,6 @@ app: student-app-api
 app: student-app-client
 {{- end }}
 
-{{define "common.mongo" -}}
+{{- define "common.mongo" -}}
 app: mongo
 {{- end }}
