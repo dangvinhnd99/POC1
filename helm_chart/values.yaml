@@ -20,4 +20,4 @@ mongo:
     repCount: 1
     image: mongo:3.6.17-xenial
     port: 27017
-    targetPort: 7017
+    targetPort: 27017
