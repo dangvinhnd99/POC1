@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1 
 kind: Ingress
 metadata:
   name: student-app-ingress
@@ -12,15 +12,15 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: student-app-client
+              name: {{ .Values.client.name }}
               port:
-                number: 80
+                number: {{ .Values.client.port }}
         - path: /api/?(.*)
           pathType: Prefix
           backend:
             service:
-              name: student-app-api
+              name: {{ .Values.api.name}}
               port:
-                number: 8080
+                number: {{ .Values.api.port }}
 
 
