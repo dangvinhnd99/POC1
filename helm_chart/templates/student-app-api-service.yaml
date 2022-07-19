@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: student-app-api
 spec:
-  selector: {{ include "common.fullname" . | nindent 4}}
+  selector: {{ include "common.api" . | nindent 4 }}
   ports:
-    - port: {{ .Values.deployment.port}}
+    - port: {{ .Values.api.port }}
       protocol: TCP
-      targetPort: {{ .Values.deployment.targetport}}
+      targetPort:  {{ .Values.api.targetPort }}
