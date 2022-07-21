@@ -11,7 +11,7 @@ spec:
       labels: {{ include "common.client" . | nindent 8 }}
     spec:
       containers:
-        - name: {{ .Release.Name }}
+        - name: {{ .Values.client.name }}
           image: {{ .Values.client.image }}
           imagePullPolicy: Always
           ports:
