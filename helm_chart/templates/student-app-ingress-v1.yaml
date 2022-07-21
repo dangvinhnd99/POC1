@@ -12,7 +12,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: {{ .Values.client.name }}
+              name: student-app-client-service
               port:
                 number: {{ .Values.client.port }}
         - path: /api/?(.*)
