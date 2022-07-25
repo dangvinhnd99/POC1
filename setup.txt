@@ -38,27 +38,7 @@ minikube version
 minikube start --driver=none
 
 # cài java (trên máy khác cũng dc)
-Step 1 : Connect to your Linux machine 
-SetUp JAVA PATH 
-Set up Custom TCP port: 8080 in AWS Security Groups 
-Step 2: Update Packages 
-   sudo yum update 
-Step 3 : Check Java is installed. If not install java   
-
-   java -version
-   sudo yum install java-1.8.0 
-UPDATE --> sudo amazon-linux-extras install java-openjdk11 
-   To check and select one out of multiple java versions available 
-
-   sudo /usr/sbin/alternatives --config java 
-Step 4 : Download latest Jenkins code package 
-
-   sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo 
-Step 5 : Import a key file from Jenkins-CI to enable installation from the package 
-
-   sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
-
-   UPDATE --> sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key 
+sudo apt install openjdk-11-jre
 
 Step 6 : Install Jenkins 
 
