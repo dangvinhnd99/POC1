@@ -131,4 +131,7 @@ $ helm install istiod istio/istiod -n istio-system --wait
 $ kubectl create namespace istio-ingress
 $ kubectl label namespace istio-ingress istio-injection=default
 
+#setup on jenkins
+- go to manager jenkins->global tool -> add location of maven and jdk (type mvn version on machine)
+- manager jenkins -> plugin manager -> install maven, kubernetes
 
