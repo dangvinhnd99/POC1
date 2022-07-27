@@ -135,3 +135,7 @@ $ kubectl label namespace default istio-injection=enable
 - go to manager jenkins->global tool -> add location of maven and jdk (type mvn version on machine)
 - manager jenkins -> plugin manager -> install maven, kubernetes
 
+
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+
